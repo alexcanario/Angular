@@ -1,3 +1,1 @@
-This is project readme
-
-Angular class exercises 
+Este o readme do projeto!
