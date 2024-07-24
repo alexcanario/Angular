@@ -1,0 +1,3 @@
+*.ts @controlaltsistemas
+.github/ @controlaltsistemas
+*.js @controlaltsistemas
