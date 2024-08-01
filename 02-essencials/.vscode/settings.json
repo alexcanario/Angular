@@ -1,0 +1,7 @@
+{
+  "prettier.printWidth": 160,
+  "prettier.embeddedLanguageFormatting": "auto",
+  "prettier.tabWidth": 3,
+  "prettier.useTabs": true,
+  "workbench.externalBrowser": "opera"
+}
