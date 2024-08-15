@@ -19,14 +19,22 @@ export class UserComponent {
   // @Output() selectUserEvent = new EventEmitter<string>();
 
   //with signal
-  id = input.required<string>();
-  avatar = input.required<string>();
-  name = input.required<string>();
+  // id = input.required<string>();
+  // avatar = input.required<string>();
+  // name = input.required<string>();
+
+  @Input({ required: true }) user!: {
+    id: string;
+    name: string;
+    avatar: string;
+  }
+
+
   selectUserEvent = output<string>();
 
   //with signal
   imagePath = computed(() => {
-    return 'assets/users/' + this.avatar();
+    return 'assets/users/' + this.user.avatar;
   });
 
   //without signal
@@ -34,7 +42,7 @@ export class UserComponent {
   //   return 'assets/users/' + this.avatar;
   // }
 
-  onUserBtnClick() { 
-    this.selectUserEvent.emit(this.id());
+  onUserBtnClick() {
+    this.selectUserEvent.emit(this.user.id);
   }
 }
