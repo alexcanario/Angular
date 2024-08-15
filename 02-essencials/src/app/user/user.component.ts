@@ -2,6 +2,18 @@ import { Component, EventEmitter, Input, Output, input, output, computed } from 
 import { RequiredValidator } from '@angular/forms';
 // import { Component, computed, input } from '@angular/core'; //withs signal
 
+// type User = {
+//   id: string;
+//   name: string;
+//   avatar: string;
+// }
+
+interface User {
+  id: string;
+  name: string;
+  avatar: string;
+}
+
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -23,18 +35,20 @@ export class UserComponent {
   // avatar = input.required<string>();
   // name = input.required<string>();
 
-  @Input({ required: true }) user!: {
-    id: string;
-    name: string;
-    avatar: string;
-  }
+  // @Input({ required: true }) user!: {
+  //   id: string;
+  //   name: string;
+  //   avatar: string;
+  // }
+
+  user = input.required<User>();
 
 
   selectUserEvent = output<string>();
 
   //with signal
   imagePath = computed(() => {
-    return 'assets/users/' + this.user.avatar;
+    return 'assets/users/' + this.user().avatar;
   });
 
   //without signal
@@ -43,6 +57,6 @@ export class UserComponent {
   // }
 
   onUserBtnClick() {
-    this.selectUserEvent.emit(this.user.id);
+    this.selectUserEvent.emit(this.user().id);
   }
 }
