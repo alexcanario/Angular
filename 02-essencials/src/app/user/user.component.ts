@@ -42,8 +42,6 @@ export class UserComponent {
   // }
 
   user = input.required<User>();
-
-
   selectUserEvent = output<string>();
 
   //with signal
